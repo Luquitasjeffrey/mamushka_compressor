@@ -11,8 +11,16 @@
 
 #pragma once
 
+
 static inline bool searchingbuffer(uint16_t(*textbuffer)[], uint32_t txtposition, uint8_t *wordsize, uint16_t *backjmp, uint32_t txtsize){
-		
+	/*
+	aca probablemente en futuras versiones aplique una tabla de hash, para hacer mucho mas rapida la busqueda de "matches".
+	Eso mejoraría sustancialmente la velocidad del codigo, mejorando su complejidad, en lugar de tratar de atacar con fuerza
+	bruta eso de buscar matches.
+	
+	tambien eliminaria las funciones que declare en el interior de otras funciones para hacer mi codigo mas portable
+	*/
+	
 	uint32_t i=(txtposition>4096)? txtposition-4096 : 0;
 	//printf("%u\n", i);
 	
